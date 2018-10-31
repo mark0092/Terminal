@@ -18,6 +18,7 @@ int lsh_cat(char **args) {
 	while((c = fgetc(rf)) != EOF) {
 		printf("%c", c);
 	}
+	close (rf);
 	printf("\n");
 	return 1;
 }
