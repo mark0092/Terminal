@@ -10,6 +10,8 @@ char *builtin_str[] = {
   "cd",
   "cat",
   "mkdir",
+  "rm",
+  "touch",
   "exit"
 };
 
@@ -17,6 +19,8 @@ int (*builtin_func[]) (char **) = {
   &lsh_cd,
   &lsh_cat,
   &lsh_mkdir,
+  &lsh_rm,
+  &lsh_touch,
   &lsh_exit
 };
 
