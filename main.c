@@ -13,6 +13,7 @@ char *builtin_str[] = {
   "rm",
   "touch",
   "mv",
+  "catwv",
   "exit"
 };
 
@@ -23,6 +24,7 @@ int (*builtin_func[]) (char **) = {
   &lsh_rm,
   &lsh_touch,
   &lsh_mv,
+  &lsh_catwv,
   &lsh_exit
 };
 
@@ -169,6 +171,9 @@ void lsh_loop(void) {
     // Parent process
       waitpid(pid, &child_status, 0);
       status = WEXITSTATUS(child_status);
+      if (status == 5) {
+          chdir(args[1]);
+      }
 	}
 	
     free(line);

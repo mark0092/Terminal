@@ -9,7 +9,8 @@ int lsh_cd(char **args) {
     exit(EXIT_FAILURE);
   }
   if (chdir(args[1]) != 0) {
-    perror("lsh");
+    fprintf(stderr, "lsh: \"cd\" нет такого каталога\n");
+    exit(EXIT_FAILURE);
   }
-  return 1;
+  return 5;
 }

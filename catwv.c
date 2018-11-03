@@ -1,24 +1,22 @@
-#include <sys/wait.h>
-#include <sys/stat.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include "commands.h"
 
-int lsh_cat(char **args) {
+int lsh_catwv(char **args) {
 	FILE *rf;
-	rf = fopen(args[1],"r");
+	rf = fopen(args[1],"rw");
 	if (rf == NULL) {
 		fprintf(stderr, "can't open the \"%s\"\n",args[1]);
 		exit(EXIT_FAILURE);
 	}
 
 	int c = fgetc(rf);
-	while((c = fgetc(rf)) != EOF) {
-		printf("%c", c);
+	while((c = fgetc(rf)) != EOF);
+	rf--;
+	if (fprintf(rf, "%s", args[2]) < 0) {
+		fprintf(stderr, "can't write your message\n");
+		exit(EXIT_FAILURE);
 	}
-	fclose (rf);
-	printf("\n");
 	return 1;
 }

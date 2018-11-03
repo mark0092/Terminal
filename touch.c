@@ -6,7 +6,7 @@
 
 int lsh_touch(char **args) {
 	if (args[1] == NULL) {
-		fprintf(stderr, "lsh: expected argument to \"utime\"\n");
+		fprintf(stderr, "lsh: expected argument to \"touch\"\n");
 		exit(EXIT_FAILURE);
 	}
 

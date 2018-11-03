@@ -1,5 +1,5 @@
-all: main.o cd.o cat.o mkdir.o exit.o rm.o touch.o mv.o
-	gcc main.o cd.o cat.o mkdir.o exit.o rm.o touch.o mv.o
+all: main.o cd.o cat.o mkdir.o exit.o rm.o touch.o mv.o catwv.o
+	gcc main.o cd.o cat.o mkdir.o exit.o rm.o touch.o mv.o catwv.o
 
 main.o: main.c
 	gcc -c main.c
@@ -24,3 +24,6 @@ touch.o: touch.c
 
 mv.o: mv.c
 	gcc -c mv.c
+
+catwv.o: catwv.c
+	gcc -c catwv.c

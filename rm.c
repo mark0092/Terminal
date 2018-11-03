@@ -9,7 +9,7 @@ int lsh_rm(char **args) {
 		exit(EXIT_FAILURE);
 	}
 	if (remove(args[1]) != 0) {
-		fprintf(stderr, "lsh: \"rm\" falled\n");
+		fprintf(stderr, "lsh: \"rm\" failed\n");
 		exit(EXIT_FAILURE);
 	}
 	return 1;
