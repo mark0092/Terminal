@@ -4,19 +4,14 @@
 #include "commands.h"
 
 int lsh_catwv(char **args) {
-	FILE *rf;
-	rf = fopen(args[1],"rw");
-	if (rf == NULL) {
-		fprintf(stderr, "can't open the \"%s\"\n",args[1]);
-		exit(EXIT_FAILURE);
-	}
+	lsh_cat(args);
 
-	int c = fgetc(rf);
-	while((c = fgetc(rf)) != EOF);
-	rf--;
+	FILE *rf;
+	rf = fopen(args[1],"a+");
 	if (fprintf(rf, "%s", args[2]) < 0) {
 		fprintf(stderr, "can't write your message\n");
 		exit(EXIT_FAILURE);
 	}
+	fclose(rf);
 	return 1;
 }
