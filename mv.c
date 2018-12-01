@@ -20,8 +20,7 @@ int lsh_mv(char **args) {
  
     while ((c = getc(ifp)) != EOF)
         putc(c, ofp);
-
-    putc(c, ofp);
+    
     fclose(ifp);
     fclose(ofp);
     lsh_rm(args);
