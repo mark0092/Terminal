@@ -14,7 +14,7 @@ int lsh_cat(char **args) {
 		exit(EXIT_FAILURE);
 	}
 
-	int c = fgetc(rf);
+	int c;
 	while((c = fgetc(rf)) != EOF) {
 		printf("%c", c);
 	}

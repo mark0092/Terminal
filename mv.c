@@ -24,5 +24,6 @@ int lsh_mv(char **args) {
     putc(c, ofp);
     fclose(ifp);
     fclose(ofp);
+    lsh_rm(args);
     return 1;
 }
